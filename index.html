@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>neponyatno</title>
+    <link rel="stylesheet" href="styles/layout.css">
+    <script src="SplitText.min.js" charset="utf-8"></script>
+    <script src="jquery.min.js" charset="utf-8"></script>
+    <script src="TweenMax.min.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="box">
+	   <p class="split">Animation is the process of creating the illusion of motion and shape change by means of the rapid display of a sequence of static images that minimally differ from each other. The illusion—as in motion pictures in general—is thought to rely on the phi phenomenon. Animators are artists who specialize in the creation of animation.
+     </p>
+	  </div>
+
+    <script>
+      var text = $(".split");
+
+      var split = new SplitText(text);
+
+      function random(min, max){
+	    return (Math.random() * (max - min)) + min;
+     }
+
+     $(split.chars).each(function(i){
+	   TweenMax.from($(this), 2.5, {
+		   opacity: 0,
+		   x: random(-500, 500),
+		   y: random(-500, 500),
+		   z: random(-500, 500),
+		   scale: .1,
+		   delay: i * .02,
+		   yoyo: true,
+		   repeat: -1,
+		   repeatDelay: 10
+	    });
+    });
+   </script>
+  </body>
+</html>
